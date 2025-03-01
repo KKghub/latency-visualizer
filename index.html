@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UX Latency Visualizer</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            align-items: center;
+        }
+
+        header {
+            padding: 0.1rem;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* background-color: cyan; */
+            gap: 2rem;
+        }
+
+        .display-container {
+            border: 2px solid black;
+            /* background-color: red;
+            color: blue; */
+        }
+
+        .display-container > img {
+            display: block;
+            padding: 1rem;
+            background-color: white;
+            color: white;
+        }
+
+        .time-container {
+            display: flex;
+            gap: 1rem;
+            border: 2px solid black;
+            padding: 1rem 2rem;
+        }
+
+        .settings-container {
+            display: flex;
+        }
+
+        input[type="checkbox"] {
+            transform:scale(1.5, 1.5);
+        }
+
+        #toggle {
+            padding: 0.5rem 2rem;
+        }
+
+        #toggle:active {
+            background-color: cyan;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>UX Latency Emulation</h2>
+    </header>
+    <main>
+        <div class="display-container">
+            <img id="placeHolder" height="300" width="400">
+            <img id="display" src="https://www.w3schools.com/html/pic_trulli.jpg"
+                height="300" width="400" style="display: none;">
+        </div>
+        <div class="time-container">
+            <label for="time">Delay Time (in ms): </label>
+            <input id="time" type="range" name="time" min="20" max="1000" value="100">
+            <span id="selectedTime"></span>
+        </div>
+        <div class="settings-container">
+            <input type="checkbox" name="bg-change" id="bg-change">
+            <label for="bg-change" style="margin-left: 0.5rem;">Change Background Color</label>
+        </div>
+        <div>
+            <button id="toggle">Toggle</button>
+        </div>
+    </main>
+    <script>
+        const body = document.querySelector('body');
+        const image = document.getElementById('display');
+        const placeHolder = document.getElementById('placeHolder');
+
+        let selectedTimeSpan = document.getElementById('selectedTime');
+        const timeSlider = document.getElementById('time');
+
+        selectedTimeSpan.innerText = timeSlider.value;
+        let selectedTime = timeSlider.valueAsNumber;
+        timeSlider.addEventListener('input', (e) => {
+            selectedTimeSpan.innerText = e.target.valueAsNumber;
+            selectedTime = e.target.valueAsNumber;
+        });
+
+        const bgChangeSetting = document.getElementById('bg-change');
+
+        const toggle = document.getElementById('toggle');
+        toggle.onclick = () => {
+            console.log(selectedTime)
+
+            if (bgChangeSetting.checked) {
+                body.style.backgroundColor = 'cyan';
+            }
+
+            setTimeout(() => {
+                if (placeHolder.style.display !== 'none') {
+                    image.style.display = placeHolder.style.display;
+                    placeHolder.style.display = 'none';
+                } else {
+                    placeHolder.style.display = image.style.display;
+                    image.style.display = 'none';
+                }
+
+                if (bgChangeSetting.checked) {
+                    body.style.backgroundColor = 'white';
+                }
+            }, selectedTime);
+        };
+    </script>
+</body>
+</html>
