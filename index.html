@@ -18,23 +18,41 @@
 
         main {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            flex-direction: row;
+            /* align-items: center; */
             /* background-color: cyan; */
             gap: 2rem;
         }
 
         .display-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .img-container {
             border: 2px solid black;
             /* background-color: red;
             color: blue; */
         }
 
-        .display-container > img {
+        .img-container > img {
             display: block;
             padding: 1rem;
             background-color: white;
             color: white;
+        }
+
+        .settings-container {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            gap: 0.5rem;
+            border: dotted;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            border-color: rgba(0, 0, 0, 0.3);
         }
 
         .time-container {
@@ -49,8 +67,12 @@
             width: 1rem;
         }
 
-        .settings-container {
+        .time-presets {
             display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1rem;
         }
 
         input[type="checkbox"] {
@@ -64,6 +86,13 @@
         #toggle:active {
             background-color: cyan;
         }
+
+        @media only screen and (max-width: 800px) {
+            main {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -72,21 +101,33 @@
     </header>
     <main>
         <div class="display-container">
-            <img id="placeHolder" height="300" width="400">
-            <img id="display" src="https://www.w3schools.com/html/pic_trulli.jpg"
-                height="300" width="400" style="display: none;">
+            <div class="img-container">
+                <img id="placeHolder" height="300" width="400">
+                <img id="display" src="https://www.w3schools.com/html/pic_trulli.jpg"
+                    height="300" width="400" style="display: none;">
+            </div>
+            <div>
+                <button id="toggle">Toggle</button>
+            </div>
         </div>
-        <div class="time-container">
-            <label for="time">Delay Time (in ms): </label>
-            <input id="time" type="range" name="time" min="20" max="1000" value="100">
-            <span id="selectedTime"></span>
-        </div>
+
+
         <div class="settings-container">
-            <input type="checkbox" name="bg-change" id="bg-change">
-            <label for="bg-change" style="margin-left: 0.5rem;">Change Background Color</label>
-        </div>
-        <div>
-            <button id="toggle">Toggle</button>
+            <h2>Settings</h2>
+            <div class="time-container">
+                <label for="time">Delay Time (in ms): </label>
+                <input id="time" type="range" name="time" min="20" max="1000" value="100">
+                <span id="selectedTime"></span>
+            </div>
+            <div class="time-presets">
+                <button onclick="setTime(100)">100</button>
+                <button onclick="setTime(500)">500</button>
+                <button onclick="setTime(1000)">1000</button>
+            </div>
+            <div class="color-settings">
+                <input type="checkbox" name="bg-change" id="bg-change">
+                <label for="bg-change" style="margin-left: 0.5rem;">Change Background Color</label>
+            </div>
         </div>
     </main>
     <script>
@@ -128,6 +169,11 @@
                 }
             }, selectedTime);
         };
+
+        function setTime(time) {
+            timeSlider.value = time;
+            timeSlider.dispatchEvent(new Event('input'));
+        }
     </script>
 </body>
 </html>
