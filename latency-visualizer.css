@@ -1,7 +1,11 @@
+:root {
+    --bg-color: white
+}
+
 body {
     display: flex;
     flex-direction: column;
-    background-color: white;
+    background-color: var(--bg-color);
     align-items: center;
 }
 

@@ -15,6 +15,18 @@ timeSlider.addEventListener('input', (e) => {
 
 const bgChangeSetting = document.getElementById('bg-change');
 
+
+
+const imageUrls = [
+    './images/mountains.jpg',
+    './images/half-moon.jpg',
+    './images/purple-flowers.jpg',
+    './images/starry-night.jpg',
+    './images/dahlia-flower.jpg',
+];
+let currentImageIdx = Math.floor(Math.random() * imageUrls.length);
+image.src = imageUrls[currentImageIdx];
+
 const toggle = document.getElementById('toggle');
 toggle.onclick = () => {
     console.log(selectedTime)
@@ -22,15 +34,19 @@ toggle.onclick = () => {
     if (bgChangeSetting.checked) {
         body.style.backgroundColor = 'cyan';
     }
-
+ 
     setTimeout(() => {
-        if (placeHolder.style.display !== 'none') {
-            image.style.display = placeHolder.style.display;
-            placeHolder.style.display = 'none';
-        } else {
-            placeHolder.style.display = image.style.display;
-            image.style.display = 'none';
-        }
+        currentImageIdx = (currentImageIdx + 1) % imageUrls.length;
+        image.src = imageUrls[currentImageIdx];
+        // if (placeHolder.style.display !== 'none') {
+        //     image.style.display = placeHolder.style.display;
+        //     currentImageIdx = (currentImageIdx + 1) % imageUrls.length;
+        //     image.src = imageUrls[currentImageIdx];
+        //     placeHolder.style.display = 'none';
+        // } else {
+        //     placeHolder.style.display = image.style.display;
+        //     image.style.display = 'none';
+        // }
 
         if (bgChangeSetting.checked) {
             body.style.backgroundColor = 'white';
