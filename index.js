@@ -48,7 +48,7 @@ toggle.onclick = () => {
         // }
 
         if (bgChangeSetting.checked) {
-            body.style.backgroundColor = 'white';
+            body.style.backgroundColor = 'var(--bg-color)';
         }
     }, selectedTime);
 };
