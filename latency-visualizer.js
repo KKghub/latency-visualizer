@@ -15,15 +15,6 @@ timeSlider.addEventListener('input', (e) => {
 
 const bgChangeSetting = document.getElementById('bg-change');
 
-
-
-const imageUrls = [
-    './images/mountains.jpg',
-    './images/half-moon.jpg',
-    './images/purple-flowers.jpg',
-    './images/starry-night.jpg',
-    './images/dahlia-flower.jpg',
-];
 let currentImageIdx = Math.floor(Math.random() * imageUrls.length);
 image.src = imageUrls[currentImageIdx];
 
