@@ -1,0 +1,87 @@
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    align-items: center;
+}
+
+header {
+    padding: 0.1rem;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    /* align-items: center; */
+    /* background-color: cyan; */
+    gap: 2rem;
+}
+
+.display-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+.img-container {
+    border: 2px solid black;
+    /* background-color: red;
+            color: blue; */
+}
+
+.img-container>img {
+    display: block;
+    padding: 1rem;
+    background-color: white;
+}
+
+.settings-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+    border: dotted;
+    border: 1px dotted rgba(0, 0, 0, 0.3);
+    border-radius: 0.5rem;
+    border-color: rgba(0, 0, 0, 0.3);
+}
+
+.time-container {
+    display: flex;
+    gap: 1rem;
+    border: 2px solid black;
+    padding: 1rem 2rem;
+}
+
+#selectedTime {
+    display: inline-block;
+    width: 4rem;
+}
+
+.time-presets {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.5, 1.5);
+}
+
+#toggle {
+    padding: 0.5rem 2rem;
+}
+
+#toggle:active {
+    background-color: cyan;
+}
+
+@media only screen and (max-width: 800px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+}
