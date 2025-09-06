@@ -1,5 +1,7 @@
 :root {
-    --bg-color: white
+    --bg-color: white;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 body {
@@ -37,8 +39,7 @@ main {
 .img-container > img {
     display: block;
     padding: 1rem;
-    background-color: white;
-    color: white;
+    background-color: var(--bg-color);
 }
 
 .settings-container {
@@ -46,10 +47,9 @@ main {
     flex-direction: column;
     text-align: center;
     gap: 0.5rem;
-    border: dotted;
     padding: 1rem 2rem;
+    border: 2px dotted rgba(0, 0, 0, 0.3);
     border-radius: 0.5rem;
-    border-color: rgba(0, 0, 0, 0.3);
 }
 
 .time-container {
@@ -77,11 +77,20 @@ input[type="checkbox"] {
 }
 
 #toggle {
+    color: white;
+    background-color: #007bff;
     padding: 0.5rem 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 0.5rem;
+    cursor: pointer; 
+}
+
+#toggle:hover {
+    background-color: #0056b3;
 }
 
 #toggle:active {
-    background-color: cyan;
+    background-color: #007bff;
 }
 
 @media only screen and (max-width: 800px) {

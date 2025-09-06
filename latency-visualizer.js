@@ -1,11 +1,12 @@
-// latency-visualizer.js
 const body = document.querySelector('body');
 const image = document.getElementById('display');
 const placeHolder = document.getElementById('placeHolder');
 
-let selectedTimeSpan = document.getElementById('selectedTime');
+const bgChangeSetting = document.getElementById('bg-change');
+const selectedTimeSpan = document.getElementById('selectedTime');
 const timeSlider = document.getElementById('time');
 
+// handle settings
 selectedTimeSpan.innerText = timeSlider.value;
 let selectedTime = timeSlider.valueAsNumber;
 timeSlider.addEventListener('input', (e) => {
@@ -13,8 +14,7 @@ timeSlider.addEventListener('input', (e) => {
     selectedTime = e.target.valueAsNumber;
 });
 
-const bgChangeSetting = document.getElementById('bg-change');
-
+// setup image
 let currentImageIdx = Math.floor(Math.random() * imageUrls.length);
 image.src = imageUrls[currentImageIdx];
 
@@ -22,6 +22,7 @@ image.src = imageUrls[currentImageIdx];
 placeHolder.style.display = 'none';
 image.style.display = 'block'
 
+// handle toggle
 const toggle = document.getElementById('toggle');
 toggle.onclick = () => {
     console.log(selectedTime)
@@ -48,8 +49,3 @@ toggle.onclick = () => {
         }
     }, selectedTime);
 };
-
-function setTime(time) {
-    timeSlider.value = time;
-    timeSlider.dispatchEvent(new Event('input'));
-}
