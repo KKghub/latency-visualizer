@@ -59,10 +59,10 @@ themeButton.onclick = () => {
     if (currentTheme === 'dark') {
         body.setAttribute('data-theme', 'light');
         iconLight.style.display = 'none'
-        iconDark.style.display = 'inline'
+        iconDark.style.display = 'block'
     } else {
         body.setAttribute('data-theme', 'dark');
-        iconLight.style.display = 'inline'
+        iconLight.style.display = 'block'
         iconDark.style.display = 'none'
     }
 }
