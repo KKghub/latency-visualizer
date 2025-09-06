@@ -27,6 +27,10 @@ const imageUrls = [
 let currentImageIdx = Math.floor(Math.random() * imageUrls.length);
 image.src = imageUrls[currentImageIdx];
 
+// switch from placeholder to image
+placeHolder.style.display = 'none';
+image.style.display = 'block'
+
 const toggle = document.getElementById('toggle');
 toggle.onclick = () => {
     console.log(selectedTime)
