@@ -1,10 +1,14 @@
 const body = document.querySelector('body');
 const image = document.getElementById('display');
 const placeHolder = document.getElementById('placeHolder');
+const toggle = document.getElementById('toggle');
 
 const bgChangeSetting = document.getElementById('bg-change');
 const selectedTimeSpan = document.getElementById('selectedTime');
 const timeSlider = document.getElementById('time');
+const themeButton = document.getElementById('theme');
+const iconDark = document.getElementById('icon-dark');
+const iconLight = document.getElementById('icon-light');
 
 // handle settings
 selectedTimeSpan.innerText = timeSlider.value;
@@ -23,7 +27,6 @@ placeHolder.style.display = 'none';
 image.style.display = 'block'
 
 // handle toggle
-const toggle = document.getElementById('toggle');
 toggle.onclick = () => {
     console.log(selectedTime)
 
@@ -49,3 +52,23 @@ toggle.onclick = () => {
         }
     }, selectedTime);
 };
+
+// handle theme switching
+themeButton.onclick = () => {
+    const currentTheme = body.getAttribute('data-theme');
+    if (currentTheme === 'dark') {
+        body.setAttribute('data-theme', 'light');
+        iconLight.style.display = 'none'
+        iconDark.style.display = 'inline'
+    } else {
+        body.setAttribute('data-theme', 'dark');
+        iconLight.style.display = 'inline'
+        iconDark.style.display = 'none'
+    }
+}
+
+// for inline html call
+function setTime(time) {
+    timeSlider.value = time;
+    timeSlider.dispatchEvent(new Event('input'));
+}

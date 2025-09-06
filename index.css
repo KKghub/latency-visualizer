@@ -1,7 +1,15 @@
 :root {
     --bg-color: white;
-    font-size: 16px;
-    font-family: 'Times New Roman', Times, serif;
+    --text-color: black;
+    --border-color-primary: black;
+    --border-color-secondary: rgba(0, 0, 0, 0.3)
+}
+
+body[data-theme="dark"] {
+    --bg-color: #181818;
+    --text-color: #f1f1f1;
+    --border-color-primary: #f1f1f1;
+    --border-color-secondary: rgba(241, 241, 241, 0.3);
 }
 
 body {
@@ -9,10 +17,30 @@ body {
     flex-direction: column;
     background-color: var(--bg-color);
     align-items: center;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+    color: var(--text-color)
 }
 
 header {
-    padding: 0.1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.1rem 20rem;
+    width: 90%;
+    justify-content: space-between;
+}
+
+header > h1 {
+    flex-grow: 1;
+    text-align: center;
+}
+
+#theme {
+    border-width: 0;
+    border-radius: 10%;
+    padding: 0.5rem;
+    cursor: pointer;
 }
 
 main {
@@ -31,7 +59,7 @@ main {
 }
 
 .img-container {
-    border: 2px solid black;
+    border: 2px solid var(--border-color-primary);
     /* background-color: red;
     color: blue; */
 }
@@ -42,20 +70,37 @@ main {
     background-color: var(--bg-color);
 }
 
+#toggle {
+    color: white;
+    background-color: #007bff;
+    padding: 0.5rem 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 0.5rem;
+    cursor: pointer; 
+}
+
+#toggle:hover {
+    background-color: #0056b3;
+}
+
+#toggle:active {
+    background-color: #007bff;
+}
+
 .settings-container {
     display: flex;
     flex-direction: column;
     text-align: center;
     gap: 0.5rem;
     padding: 1rem 2rem;
-    border: 2px dotted rgba(0, 0, 0, 0.3);
+    border: 2px dotted var(--border-color-secondary);
     border-radius: 0.5rem;
 }
 
 .time-container {
     display: flex;
     gap: 1rem;
-    border: 2px solid black;
+    border: 2px solid var(--border-color-primary);
     padding: 1rem 2rem;
 }
 
@@ -76,22 +121,6 @@ input[type="checkbox"] {
     transform: scale(1.5, 1.5);
 }
 
-#toggle {
-    color: white;
-    background-color: #007bff;
-    padding: 0.5rem 2rem;
-    border: 1px solid rgba(0, 0, 0, 0.3);
-    border-radius: 0.5rem;
-    cursor: pointer; 
-}
-
-#toggle:hover {
-    background-color: #0056b3;
-}
-
-#toggle:active {
-    background-color: #007bff;
-}
 
 @media only screen and (max-width: 800px) {
     main {
