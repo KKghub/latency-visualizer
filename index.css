@@ -125,8 +125,12 @@ input[type="checkbox"] {
     transform: scale(1.5, 1.5);
 }
 
-.color-settings > div {
-    margin: 0.1rem
+.color-settings {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 }
 
 @media only screen and (max-width: 800px) {
