@@ -20,7 +20,7 @@
     <main>
         <div class="display-container">
             <div class="img-container">
-                <img id="placeHolder" height="300" width="400">
+                <img id="placeHolder" src="icons/loader.svg" height="60" width="80">
                 <img id="display" src="" style="display: none;" height="300" width="400">
             </div>
             <div>
@@ -43,8 +43,15 @@
                 <button onclick="setTime(1000)">1000</button>
             </div>
             <div class="color-settings">
-                <input type="checkbox" name="bg-change" id="bg-change">
-                <label for="bg-change" style="margin-left: 0.5rem;">Change Background Color</label>
+                <div>
+                    <input type="checkbox" name="bg-change" id="bg-change">
+                    <label for="bg-change" style="margin-left: 0.5rem;">Change Background Color</label>
+                </div>
+                <br>
+                <div>
+                    <input type="checkbox" name="enable-loader" id="enable-loader">
+                    <label for="enable-loader" style="margin-left: 0.5rem;">Enable Loader</label>
+                </div>
             </div>
             <div class="theme-settings">
                 

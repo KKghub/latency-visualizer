@@ -60,14 +60,17 @@ main {
 }
 
 .img-container {
+    display: flex;
     border: 2px solid var(--border-color-primary);
-    /* background-color: red;
-    color: blue; */
+    height: 300px;
+    width: 400px;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
 }
 
 .img-container > img {
     display: block;
-    padding: 1rem;
     background-color: var(--bg-color);
 }
 
@@ -122,6 +125,9 @@ input[type="checkbox"] {
     transform: scale(1.5, 1.5);
 }
 
+.color-settings > div {
+    margin: 0.1rem
+}
 
 @media only screen and (max-width: 800px) {
     main {

@@ -3,9 +3,11 @@ const image = document.getElementById('display');
 const placeHolder = document.getElementById('placeHolder');
 const toggle = document.getElementById('toggle');
 
-const bgChangeSetting = document.getElementById('bg-change');
-const selectedTimeSpan = document.getElementById('selectedTime');
 const timeSlider = document.getElementById('time');
+const selectedTimeSpan = document.getElementById('selectedTime');
+const bgChangeSetting = document.getElementById('bg-change');
+const enableLoaderSetting = document.getElementById('enable-loader');
+
 const themeButton = document.getElementById('theme');
 const iconDark = document.getElementById('icon-dark');
 const iconLight = document.getElementById('icon-light');
@@ -33,19 +35,17 @@ toggle.onclick = () => {
     if (bgChangeSetting.checked) {
         body.style.backgroundColor = 'cyan';
     }
+
+    if (enableLoaderSetting.checked) {
+        placeHolder.style.display = 'block';
+        image.style.display = 'none'
+    }
  
     setTimeout(() => {
         currentImageIdx = (currentImageIdx + 1) % imageUrls.length;
         image.src = imageUrls[currentImageIdx];
-        // if (placeHolder.style.display !== 'none') {
-        //     image.style.display = placeHolder.style.display;
-        //     currentImageIdx = (currentImageIdx + 1) % imageUrls.length;
-        //     image.src = imageUrls[currentImageIdx];
-        //     placeHolder.style.display = 'none';
-        // } else {
-        //     placeHolder.style.display = image.style.display;
-        //     image.style.display = 'none';
-        // }
+        placeHolder.style.display = 'none';
+        image.style.display = 'block'
 
         if (bgChangeSetting.checked) {
             body.style.backgroundColor = 'var(--bg-color)';
