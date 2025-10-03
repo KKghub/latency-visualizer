@@ -110,6 +110,13 @@ main {
     background-color: #007bff;
 }
 
+/* Disable hover on touch devices */
+@media (hover: none) {
+    #toggle:hover {
+        background-color: #007bff;
+    }
+}
+
 .settings-container {
     display: flex;
     flex-direction: column;
