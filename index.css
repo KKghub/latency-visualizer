@@ -54,6 +54,7 @@ header {
 main {
     display: flex;
     flex-direction: row;
+    justify-content: safe center;
     /* align-items: center; */
     /* background-color: cyan; */
     gap: 2rem;
@@ -117,7 +118,7 @@ main {
     padding: 1rem;
     border: 2px dotted var(--border-color-secondary);
     border-radius: 0.5rem;
-    flex: 1;
+    /* flex: 1; */
 }
 
 .time-container {
