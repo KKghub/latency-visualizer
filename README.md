@@ -1,8 +1,19 @@
 # Latency Visualizer
 
-Visualize latency with the feedback on UI
+An interactive tool to **simulate** and **visualize** latency on a UI.
 
-## Latency Numbers
+A toggle button switches between images, and the delay between the click and the actual image change can be configured to simulate different UI response times.
+
+## Features
+
+- Supports Light/Dark Theme
+- Responsive Design to adapt to Desktop/Tablet/Mobile
+- Loading Spinner can be enabled while toggling images
+
+## Implementation
+
+This project uses JavaScript’s [setTimeout](https://developer.mozilla.org/en-US/docs/Web/API/Window/setTimeout) to introduce latency.
+While setTimeout does not guarantee exact timing, it works well for this purpose because the UI is minimal and not resource-intensive.
 
 - `0.1 second = 100 milliseconds` is about the limit for having the user feel that the system is reacting instantaneously, meaning that no special feedback is necessary except to display the result.
 
