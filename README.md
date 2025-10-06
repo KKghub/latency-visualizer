@@ -15,6 +15,8 @@ A toggle button switches between images, and the delay between the click and the
 This project uses JavaScript’s [setTimeout](https://developer.mozilla.org/en-US/docs/Web/API/Window/setTimeout) to introduce latency.
 While setTimeout does not guarantee exact timing, it works well for this purpose because the UI is minimal and not resource-intensive.
 
+## Latency Numbers
+
 - `0.1 second = 100 milliseconds` is about the limit for having the user feel that the system is reacting instantaneously, meaning that no special feedback is necessary except to display the result.
 
 - `1.0 second` is about the limit for the user's flow of thought to stay uninterrupted, even though the user will notice the delay. Normally, no special feedback is necessary during delays of more than 0.1 but less than 1.0 second, but the user does ***lose the feeling of operating directly on the data***.
