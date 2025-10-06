@@ -58,7 +58,7 @@ main {
     /* align-items: center; */
     /* background-color: cyan; */
     gap: 2rem;
-    padding: 0 2rem;
+    padding: 0 2rem 2rem 2rem;
 }
 
 .display-container {

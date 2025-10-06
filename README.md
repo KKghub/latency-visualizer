@@ -13,7 +13,9 @@ A toggle button switches between images, and the delay between the click and the
 ## Implementation
 
 This project uses JavaScript’s [setTimeout](https://developer.mozilla.org/en-US/docs/Web/API/Window/setTimeout) to introduce latency.
-While setTimeout does not guarantee exact timing, it works well for this purpose because the UI is minimal and not resource-intensive.
+While `setTimeout` does not guarantee exact timing, it should work well for this purpose because the UI is minimal and not resource-intensive.
+
+> Note: Heavy system load (e.g., high CPU usage, multiple active applications) or browser throttling can slow down the event loop. In such cases, the actual delay may be longer than specified.
 
 ## Latency Numbers
 
